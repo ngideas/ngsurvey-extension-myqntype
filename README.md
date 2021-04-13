@@ -1,2 +1,8 @@
 # ngsurvey-extension-myqntype
-A demo plugin to demonstration the NgSurvey question creation.
+A demo WordPress plugin to demonstrate the NgSurvey question type creation.
+
+## How to use
+Zip the main folder and install it via WordPress installer.
+
+## Documentation
+See https://docs.ngideas.com/creating-ngsurvey-question-type/
