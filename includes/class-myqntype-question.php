@@ -128,13 +128,13 @@ class MyQnType_Question extends NgSurvey_Question {
      * @var      array      $ng_form   The array containing all unsanitized form data
      * @var      boolean    $status    True on success, false otherwise
      */
-    public function save_form ( $question, $ng_form ) {
+    public function save_form ( $question ) {
         if( $question->qtype != $this->name ) {
             return true;
         }
         
         global $wpdb;
-        $status = parent::save_form( $question, $ng_form );
+        $status = parent::save_form( $question );
 
         if( $status !== false ) {
             
@@ -142,7 +142,7 @@ class MyQnType_Question extends NgSurvey_Question {
             if( empty( $question->answers ) ) {
                 foreach ( $question->answers as $answer ) {
                     
-                    if( !in_array( $answer->id, $ng_form['answer_id'] ) ) {
+                    if( !in_array( $answer->id, $_POST['ngform']['answer_id'] ) ) {
                         
                         $wpdb->delete(
                             "{$wpdb->prefix}ngs_answers",
@@ -160,8 +160,8 @@ class MyQnType_Question extends NgSurvey_Question {
             }
             
             // Now insert or merge answers
-            if( !empty( $ng_form[ 'answer_id' ] ) ) {
-                foreach ( $ng_form[ 'answer_id' ] as $i => $answer_id ) {
+            if( !empty( $_POST['ngform'][ 'answer_id' ] ) ) {
+                foreach ( $_POST['ngform'][ 'answer_id' ] as $i => $answer_id ) {
                     
                     $wpdb->replace(
                         "{$wpdb->prefix}ngs_answers",
@@ -169,7 +169,7 @@ class MyQnType_Question extends NgSurvey_Question {
                             'id'            => $answer_id,
                             'answer_type'   => 'x',
                             'question_id'   => $question->id,
-                            'title'         => wp_kses_post( $ng_form[ 'answer_title' ][ $i ] ),
+                            'title'         => wp_filter_post_kses( $_POST['ngform'][ 'answer_title' ][ $i ] ),
                             'sort_order'    => $i + 1,
                         ),
                         array(

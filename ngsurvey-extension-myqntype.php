@@ -82,7 +82,7 @@ class NgSurvey_Extension_MyQnType {
         add_filter( 'ngsurvey_conditional_rules', array( $plugin, 'get_rules' ) );
         
         // Add action to save the question form
-        add_action( 'ngsurvey_save_question_form', array( $plugin, 'save_form' ), 10, 2 );
+        add_action( 'ngsurvey_save_question_form', array( $plugin, 'save_form' ) );
         
         // Add filter to show response details of a user response
         add_filter( 'ngsurvey_survey_results', array( $plugin, 'get_results' ) );
