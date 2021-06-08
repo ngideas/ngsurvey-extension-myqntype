@@ -67,7 +67,7 @@ switch ( $question->params->get('choice_type') ) {
     case 'select':
         ?>
     	<select class="form-select" name="ngform[answers][<?php echo $question->id?>][response][]" <?php echo $question->params->get('required') ? 'required="required"' : '';?>>
-    		<option value=""><?php echo __( '- Select an option -', NGSURVEY_TEXTDOMAIN );?></option>
+    		<option value=""><?php echo esc_html__( '- Select an option -', NGSURVEY_TEXTDOMAIN );?></option>
     		<?php 
     		foreach ( $question->answers as $answer ) {
     		    ?>
@@ -93,7 +93,7 @@ if( $question->params->get('show_custom_answer') ) {
         		name="ngform[answers][<?php echo $question->id?>][custom]"
         		id="custom-answer-<?php echo $question->id;?>" 
         		<?php echo $question->params->get('custom_answer_maxlength') > 0 ? ' maxlength="'.$question->params->get('custom_answer_maxlength').'"' : '';?>
-        		placeholder="<?php echo __( $question->params->get('custom_answer_placeholder', 'Other'), NGSURVEY_TEXTDOMAIN );?>"
+        		placeholder="<?php echo esc_attr__( $question->params->get('custom_answer_placeholder', 'Other'), NGSURVEY_TEXTDOMAIN );?>"
         		value="<?php echo esc_attr( $custom );?>">
         </div>
     </div>
