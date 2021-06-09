@@ -22,7 +22,7 @@ foreach ( $data->answers as $answer ) {
         	<?php else :?>
         	<span class="dashicons dashicons-marker text-muted"></span>
         	<?php endif;?>
-        	<?php echo $answer->title;?>
+        	<?php echo  wp_kses_post( $answer->title );?>
     	</div>
     </div>
     <?php

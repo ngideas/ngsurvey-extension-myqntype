@@ -70,22 +70,22 @@ foreach ( $question->answers as &$answer ) {
 </div>
 <div class="row">
 	<div class="col-md-5">
-		<canvas id="choice-pie-chart-<?php echo $question->id;?>" 
+		<canvas id="choice-pie-chart-<?php echo (int) $question->id;?>" 
 				data-title="<?php echo esc_attr__( 'Response Statistics', NGSURVEY_TEXTDOMAIN );?>"
 				data-yaxis-label="<?php echo esc_attr__( 'Responses', NGSURVEY_TEXTDOMAIN );?>"
-				data-data="#chart-data-<?php echo $question->id;?>"
+				data-data="#chart-data-<?php echo (int) $question->id;?>"
 				data-chart-type="doughnut"
 				data-legend="1"></canvas>
 	</div>
 	<div class="col-md-7">
-		<canvas id="choice-bar-chart-<?php echo $question->id;?>" 
+		<canvas id="choice-bar-chart-<?php echo (int) $question->id;?>" 
 				data-title="<?php echo esc_attr__( 'Response Statistics', NGSURVEY_TEXTDOMAIN );?>"
 				data-yaxis-label="<?php echo esc_attr__( 'Responses', NGSURVEY_TEXTDOMAIN );?>"
-				data-data="#chart-data-<?php echo $question->id;?>"
+				data-data="#chart-data-<?php echo (int) $question->id;?>"
 				data-chart-type="bar"
 				data-legend="0"></canvas>
 	</div>
 	
-	<div id="chart-data-<?php echo $question->id;?>" style="display: none;"><?php echo json_encode( $chartData );?></div>
+	<div id="chart-data-<?php echo (int) $question->id;?>" style="display: none;"><?php echo json_encode( $chartData );?></div>
 </div>	
 

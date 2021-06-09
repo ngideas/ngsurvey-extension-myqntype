@@ -41,7 +41,7 @@ $question   = $data;
             			</a>
         			</span>
         		</div>
-    			<input type="hidden" name="ngform[answer_id][]" value="<?php echo $answer->id;?>">
+    			<input type="hidden" name="ngform[answer_id][]" value="<?php echo (int) $answer->id;?>">
     		</div>
     		<?php
     	}

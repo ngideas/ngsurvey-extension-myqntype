@@ -29,15 +29,15 @@ switch ( $question->params->get('choice_type') ) {
             <div class="mb-1 form-check custom-radio<?php echo $question->params->get('show_answers_inline') ? ' custom-control-inline' : '';?>">
             	<input 
             		type="radio" 
-            		id="answer-<?php echo $question->id;?>-<?php echo $answer->id;?>" 
+            		id="answer-<?php echo (int) $question->id;?>-<?php echo (int) $answer->id;?>" 
             		name="ngform[answers][<?php echo $question->id?>][response][]"
-            		value="<?php echo $answer->id;?>"
+            		value="<?php echo (int) $answer->id;?>"
             		class="form-check-input"
                     <?php echo $question->params->get('required') ? 'required="required"' : '';?>
                     <?php echo in_array( $answer->id, array_column( $question->responses, 'answer_id' ) ) ? 'checked="checked"' : '';?>>
 
-            	<label class="form-check-label" for="answer-<?php echo $question->id;?>-<?php echo $answer->id;?>">
-            		<?php echo $answer->title;?>
+            	<label class="form-check-label" for="answer-<?php echo (int) $question->id;?>-<?php echo (int) $answer->id;?>">
+            		<?php echo wp_kses_post( $answer->title );?>
             	</label>
             </div>
             <?php
@@ -50,15 +50,15 @@ switch ( $question->params->get('choice_type') ) {
             <div class="mb-1 form-check custom-checkbox<?php echo $question->params->get('show_answers_inline') ? ' custom-control-inline' : '';?>">
             	<input 
             		type="checkbox" 
-            		id="answer-<?php echo $question->id;?>-<?php echo $answer->id;?>" 
-            		name="ngform[answers][<?php echo $question->id?>][response][]"
-            		value="<?php echo $answer->id;?>"
+            		id="answer-<?php echo (int) $question->id;?>-<?php echo (int) $answer->id;?>" 
+            		name="ngform[answers][<?php echo (int) $question->id?>][response][]"
+            		value="<?php echo (int) $answer->id;?>"
             		class="form-check-input"
-            		<?php echo $question->params->get('minimum_selections') ? 'minlength="'.$question->params->get('minimum_selections').'"' : '';?>
-            		<?php echo $question->params->get('maximum_selections') ? 'maxlength="'.$question->params->get('maximum_selections').'"' : '';?>
+            		<?php echo $question->params->get('minimum_selections') ? 'minlength="'.esc_attr( $question->params->get('minimum_selections') ).'"' : '';?>
+            		<?php echo $question->params->get('maximum_selections') ? 'maxlength="'.esc_attr( $question->params->get('maximum_selections') ).'"' : '';?>
             		<?php echo $question->params->get('required') ? 'required="required"' : '';?>
             		<?php echo in_array( $answer->id, array_column( $question->responses, 'answer_id' ) ) ? 'checked="checked"' : '';?>>
-            	<label class="form-check-label" for="answer-<?php echo $question->id;?>-<?php echo $answer->id;?>"><?php echo $answer->title;?></label>
+            	<label class="form-check-label" for="answer-<?php echo (int) $question->id;?>-<?php echo (int) $answer->id;?>"><?php echo wp_kses_post( $answer->title );?></label>
             </div>
             <?php
         }
@@ -74,7 +74,7 @@ switch ( $question->params->get('choice_type') ) {
     		    <option 
     		    	value="<?php echo $answer->id;?>"
     		    	<?php echo in_array( $answer->id, array_column( $question->responses, 'answer_id' ) ) ? 'selected="selected"' : '';?>>
-    		    	<?php echo $answer->title;?>
+    		    	<?php echo wp_kses_post( $answer->title );?>
     		    </option>
     		    <?php
     		}
@@ -90,8 +90,8 @@ if( $question->params->get('show_custom_answer') ) {
         <div class="form-group">
         	<input type="text" 
         		class="form-control" 
-        		name="ngform[answers][<?php echo $question->id?>][custom]"
-        		id="custom-answer-<?php echo $question->id;?>" 
+        		name="ngform[answers][<?php echo (int) $question->id?>][custom]"
+        		id="custom-answer-<?php echo (int) $question->id;?>" 
         		<?php echo $question->params->get('custom_answer_maxlength') > 0 ? ' maxlength="'.$question->params->get('custom_answer_maxlength').'"' : '';?>
         		placeholder="<?php echo esc_attr__( $question->params->get('custom_answer_placeholder', 'Other'), NGSURVEY_TEXTDOMAIN );?>"
         		value="<?php echo esc_attr( $custom );?>">
