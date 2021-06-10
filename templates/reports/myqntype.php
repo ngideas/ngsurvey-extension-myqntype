@@ -86,6 +86,6 @@ foreach ( $question->answers as &$answer ) {
 				data-legend="0"></canvas>
 	</div>
 	
-	<div id="chart-data-<?php echo (int) $question->id;?>" style="display: none;"><?php echo json_encode( $chartData );?></div>
+	<div id="chart-data-<?php echo (int) $question->id;?>" style="display: none;"><?php echo esc_html( json_encode( $chartData ) );?></div>
 </div>	
 
