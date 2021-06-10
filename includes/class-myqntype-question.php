@@ -232,18 +232,17 @@ class MyQnType_Question extends NgSurvey_Question {
      * @access   public
 	 * @var      array $filtered_data the filtered data returned to caller
 	 * @var      stdClass $question the question object
-     * @var      array $response_data the user response data associated with this question
      * 
      * @return   array $filtered_data the filtered response data
      */
-    public function filter_response_data ( $filtered_data, $question, $response_data ) {
+    public function filter_response_data ( $filtered_data, $question ) {
         if( $question->qtype != $this->name ) {
             return $filtered_data;
         }
         
-        if( !empty( $response_data[ 'response' ] ) ) {
+        if( !empty( $_POST[ 'ngform' ][ 'answers' ][ $question->id ][ 'response' ] ) ) {
             foreach ( $question->answers as $answer ) {
-                foreach ( $response_data[ 'response' ] as $response ) {
+                foreach ( $_POST[ 'ngform' ][ 'answers' ][ $question->id ][ 'response' ] as $response ) {
                     if( $answer->id == $response ) {
                         $filtered_data[] = array( 'answer_id' => (int) $response, 'column_id' => 0, 'answer_data' => null );
                         break;
@@ -252,8 +251,9 @@ class MyQnType_Question extends NgSurvey_Question {
             }
         }
         
-        if( !empty( $response_data['custom'] ) ) {
-            $filtered_data[] = array( 'answer_id' => 1, 'column_id' => 0, 'answer_data' => $response_data['custom'] );
+        if( !empty( $_POST[ 'ngform' ][ 'answers' ][ $question->id ]['custom'] ) ) {
+            $custom_answer = wp_kses_post( wp_unslash( $_POST[ 'ngform' ][ 'answers' ][ $question->id ]['custom'] ) );
+            $filtered_data[] = array( 'answer_id' => 1, 'column_id' => 0, 'answer_data' => $custom_answer );
         }
         
         return $filtered_data;
