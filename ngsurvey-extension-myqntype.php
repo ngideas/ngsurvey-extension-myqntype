@@ -15,7 +15,7 @@
  * Author URI:        https://ngideas.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       ngsurvey
+ * Text Domain:       myqntype
  * Domain Path:       /languages
  * NgSurvey Type:     Extension
  * NgSurvey ID:       ngsurvey-extension-myqntype

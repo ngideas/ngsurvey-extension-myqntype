@@ -46,7 +46,7 @@ class MyQnType_Question extends NgSurvey_Question {
             'name'      => 'myqntype',
             'group'     => 'choice',
             'icon'      => 'dashicons dashicons-editor-help',
-            'title'     => __( 'My Question Type', NGSURVEY_TEXTDOMAIN ),
+            'title'     => __( 'My Question Type', 'myqntype' ),
             'template'  => new NgSurvey_Template_Loader(array(
                 'plugin_directory' => plugin_dir_path( dirname( __FILE__ ) ),
                 'filter_prefix' => 'ngsurvey-extension-myqntype'
