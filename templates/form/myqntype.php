@@ -27,16 +27,16 @@ $question   = $data;
     		<div class="row row-cols-lg-auto g-3 align-items-center mb-3 answer">
     			<div class="col-12">
         			<input type="text" name="ngform[answer_title][]" value="<?php echo esc_attr( $answer->title ); ?>" tabindex="<?php echo $i + 100 + 1; ?>"
-        				placeholder="<?php echo esc_attr__('Enter your answer', NGSURVEY_TEXTDOMAIN );?>" class="form-control me-2 required" size="60">
+        				placeholder="<?php echo esc_attr__('Enter your answer', 'ngsurvey-extension-myqntype' );?>" class="form-control me-2 required" size="60">
         		</div>
     			<div class="col-12">
         			<span class="answer-controls me-2">
-        				<a class="btn-remove-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Delete', NGSURVEY_TEXTDOMAIN); ?>" data-bs-toggle="tooltip">
+        				<a class="btn-remove-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Delete', 'ngsurvey-extension-myqntype'); ?>" data-bs-toggle="tooltip">
             				<span class="dashicons dashicons-trash"></span>
             			</a>
         			</span>
         			<span class="answer-controls">
-        				<a class="btn-sort-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Click and drag to sort', NGSURVEY_TEXTDOMAIN); ?>" data-bs-toggle="tooltip">
+        				<a class="btn-sort-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Click and drag to sort', 'ngsurvey-extension-myqntype'); ?>" data-bs-toggle="tooltip">
             				<span class="dashicons dashicons-move"></span>
             			</a>
         			</span>
@@ -49,22 +49,22 @@ $question   = $data;
     </div>
     
     <button type="button" class="btn btn-primary btn-add-answer">
-    	<span class="dashicons dashicons-plus"></span> <?php echo esc_html__( 'Add an answer', NGSURVEY_TEXTDOMAIN );?>
+    	<span class="dashicons dashicons-plus"></span> <?php echo esc_html__( 'Add an answer', 'ngsurvey-extension-myqntype' );?>
     </button>
     
     <div class="answer-template" style="display: none;">
     	<div class="row row-cols-lg-auto g-3 align-items-center mb-3 answer">
     		<div class="col-12">
-    			<input type="text" name="answer_title" value="" placeholder="<?php echo esc_attr__('Enter your answer', NGSURVEY_TEXTDOMAIN );?>" class="form-control me-2 required" size="60">
+    			<input type="text" name="answer_title" value="" placeholder="<?php echo esc_attr__('Enter your answer', 'ngsurvey-extension-myqntype' );?>" class="form-control me-2 required" size="60">
     		</div>
     		<div class="col-12">
         		<span class="answer-controls me-2">
-        			<a class="btn-remove-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Delete', NGSURVEY_TEXTDOMAIN); ?>" data-bs-toggle="tooltip">
+        			<a class="btn-remove-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Delete', 'ngsurvey-extension-myqntype'); ?>" data-bs-toggle="tooltip">
         				<span class="dashicons dashicons-trash"></span>
         			</a>
         		</span>
         		<span class="answer-controls">
-        			<a class="btn-sort-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Click and drag to sort', NGSURVEY_TEXTDOMAIN); ?>" data-bs-toggle="tooltip">
+        			<a class="btn-sort-answer" href="javascript:void(0)" title="<?php echo esc_attr__( 'Click and drag to sort', 'ngsurvey-extension-myqntype'); ?>" data-bs-toggle="tooltip">
         				<span class="dashicons dashicons-move"></span>
         			</a>
         		</span>

@@ -56,7 +56,7 @@ class NgSurvey_Extension_MyQnType {
      */
     
     public function need_ngsurvey() {
-        $error = sprintf( __( 'NgSurvey My Question requires %sNgSurvey%s to be installed & activated!' , 'ngsurvey' ), '<a href="http://wordpress.org/extend/plugins/ngsurvey/">', '</a>' );
+        $error = sprintf( __( 'NgSurvey My Question requires %sNgSurvey%s to be installed & activated!' , 'ngsurvey-extension-myqntype' ), '<a href="http://wordpress.org/extend/plugins/ngsurvey/">', '</a>' );
         $message = '<div class="error"><p>' . $error . '</p></div>';
         
         echo $message;
